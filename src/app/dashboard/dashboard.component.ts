@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
@@ -17,6 +18,9 @@ import { ResultSchema } from '../classDefinition';
 export class DashboardComponent implements OnInit {
   resultList: ResultSchema[];
   orderedList: ResultSchema[];
+  detailView: ResultSchema;
+  listView: boolean = true;
+  id: string;
 
   // Pagination param
   collectionSize: number;
@@ -31,15 +35,29 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private dashboardService: DashboardService,
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
-    this.dashboardService.getResultList()
-      .then(list => {
-        this.resultList = list;
-        this.orderedList = list;
-        this.collectionSize = list.length;
-      });
+    this.route.params.subscribe(params => {
+       this.id = params['id'];
+       if (this.id) {
+         this.dashboardService.getResultID(this.id)
+           .then(item => {
+             this.listView = false;
+             this.detailView = item;
+          });
+       } else {
+         this.dashboardService.getResultList()
+           .then(list => {
+             this.listView = true;
+             this.resultList = list;
+             this.orderedList = list;
+             this.collectionSize = list.length;
+           });
+       }
+    });
   }
 
   sortByItem(name:string):void {
@@ -63,6 +81,10 @@ export class DashboardComponent implements OnInit {
   switchPageTo(nbr:number):void {
     this.fromNbr = (nbr - 1)*this.pageSize;
     this.toNbr = nbr*this.pageSize;
+  }
+
+  showDetails(id) {
+    this.router.navigate(['/dashboard', id]);
   }
 
 }
