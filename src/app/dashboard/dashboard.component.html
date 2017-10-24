@@ -1,13 +1,14 @@
 <h3>Blog list about the programing adventures</h3>
+<!-- Did I said I was now a UI guy ;)  -->
 <div *ngIf="listView">
   <table class="table table-responsive table-striped">
     <thead class="grey-header">
       <tr>
         <th></th>
-        <th (click)="sortByItem('resource_type')"> Resource Type </th>
-        <th (click)="sortByItem('display_title')"> Display Title </th>
-        <th (click)="sortByItem('media_type')"> Media Type </th>
-        <th (click)="sortByItem('language')"> Language </th>
+        <th class="sortorder" [ngClass]="{reverse: reverse}" (click)="sortByItem('resource_type')"> Resource Type </th>
+        <th class="sortorder" [ngClass]="{reverse: reverse}" (click)="sortByItem('display_title')"> Display Title </th>
+        <th class="sortorder" [ngClass]="{reverse: reverse}" (click)="sortByItem('media_type')"> Media Type </th>
+        <th class="sortorder" [ngClass]="{reverse: reverse}" (click)="sortByItem('language')"> Language </th>
       </tr>
     </thead>
     <tbody>
@@ -32,23 +33,23 @@
 <div *ngIf="!listView">
   <!-- // Again this should be in a different Controller/page in my opinion, but SPA was requested -->
   <div class="row">
-    <div class="col-2"> Categorization: </div>
+    <div class="col-2 label"> Categorization: </div>
     <div class="col-10"> {{ detailView.content.resource.categorization }} </div>
   </div>
   <div class="row">
-    <div class="col-2"> Description: </div>
+    <div class="col-2 label"> Description: </div>
     <div class="col-10">{{ detailView.content.resource.meaningful_description }} </div>
   </div>
   <div class="row">
-    <div class="col-2"> Additional Text: </div>
+    <div class="col-2 label"> Additional Text: </div>
     <div class="col-10"> {{ detailView.content.resource.additional_text }} </div>
   </div>
   <div *ngIf="detailView.content.resource.standards && detailView.content.resource.standards.standard">
     <div class="row">
-      <div class="col-2"> Standards list: </div>
+      <div class="col-2 label"> Standards list: </div>
     </div>
-    <div class="row" *ngFor="let std of detailView.content.resource.standards.standard">
-      <div class="col-2"> {{std.id}} :</div>
+    <div class="row" *ngFor="let std of detailView.content.resource.standards.standard; let even=even;" [ngClass]="{ even: even }">
+      <div class="col-2 label"> {{std.id}} </div>
       <div class="col-10"> {{std.description}} </div>
     </div>
   </div>

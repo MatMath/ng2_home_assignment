@@ -1,4 +1,21 @@
+.row {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 .grey-header {
   background-color: #818182;
   color: white;
+}
+
+.label {
+  color: black;
+  padding-bottom: 4px;
+}
+
+.even {
+  background-color: #dcdcdc;
+}
+.odd {
+  background-color: #aaaaaa;
 }
