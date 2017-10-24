@@ -16,7 +16,7 @@ export class DashboardService {
       .get(this.resultApi)
       .toPromise()
       .then((response) => {
-        return response;
+        return response.json().data as ResultSchema[];
       })
       .catch(this.handleError);
   }

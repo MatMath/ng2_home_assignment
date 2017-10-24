@@ -16,6 +16,13 @@ import { ResultSchema } from '../classDefinition';
 })
 export class DashboardComponent implements OnInit {
   resultList: ResultSchema[];
+  activePageList: ResultSchema[];
+
+  // Pagination param
+  collectionSize: number;
+  pageSize:number = 5;
+  page: number = 1;
+  
   constructor(
     private dashboardService: DashboardService,
   ) { }
@@ -24,7 +31,10 @@ export class DashboardComponent implements OnInit {
     this.dashboardService.getResultList()
       .then(list => {
         this.resultList = list;
+        this.collectionSize = list.length;
       });
   }
+
+  // Filter should reset page to 1
 
 }

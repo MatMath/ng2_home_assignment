@@ -16,4 +16,6 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
 
-Notes: Some standards.standard are sometime Object sometime Array. It was modified to be more uniform.
+Notes:
+Some content.resource.standards.standard are sometime Object sometime Array. It was modified to be more uniform.
+Challenge: orderBy is not out of the box with Angular2.
