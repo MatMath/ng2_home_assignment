@@ -1,7 +1,7 @@
 export class InMemoryDataService {
   createDb() {
 
-    const apiResult = [
+    const apiresult = [
           {
               "uri": "/resources/2133.xml",
               "content": {
@@ -276,7 +276,7 @@ export class InMemoryDataService {
 
 
     return {
-      apiResult,
+      apiresult,
     };
   }
 }
