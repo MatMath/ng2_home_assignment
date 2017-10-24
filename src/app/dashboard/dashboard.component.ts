@@ -22,7 +22,9 @@ export class DashboardComponent implements OnInit {
   collectionSize: number;
   pageSize:number = 5;
   page: number = 1;
-  
+  fromNbr:number = 0;
+  toNbr:number = 5;
+
   constructor(
     private dashboardService: DashboardService,
   ) { }
@@ -35,6 +37,9 @@ export class DashboardComponent implements OnInit {
       });
   }
 
-  // Filter should reset page to 1
+  switchPageTo(nbr:number):void {
+    this.fromNbr = (nbr - 1)*this.pageSize;
+    this.toNbr = nbr*this.pageSize;
+  }
 
 }
