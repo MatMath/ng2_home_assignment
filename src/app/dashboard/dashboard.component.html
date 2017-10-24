@@ -1,11 +1,11 @@
 <h3>New application {{ toDisplay }}</h3>
 <div class="row">
-  <div class="col-2"> Resource Type </div>
-  <div class="col-2"> Display Title </div>
-  <div class="col-2"> Media Type </div>
-  <div class="col-2"> Language </div>
+  <div class="col-2" (click)="sortByItem('resource_type')"> Resource Type </div>
+  <div class="col-2" (click)="sortByItem('display_title')"> Display Title </div>
+  <div class="col-2" (click)="sortByItem('media_type')"> Media Type </div>
+  <div class="col-2" (click)="sortByItem('language')"> Language </div>
 </div>
-<div class="row" *ngFor="let result of resultList | slice:fromNbr:toNbr">
+<div class="row" *ngFor="let result of orderedList | slice:fromNbr:toNbr">
   <div class="col-2"> {{result.content.resource.resource_type}} </div>
   <div class="col-2"> {{result.content.resource.display_title}} </div>
   <div class="col-2"> {{result.content.resource.media_type}} </div>

@@ -1,5 +1,5 @@
 export class ContentSchema {
-  ressource: {
+  resource: {
       id: string; // It should be a Number but the data is in string format.
       resource_type: string;
       display_title: string;
