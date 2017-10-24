@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
     <nav>
       <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
     </nav>
+    <br />
     <router-outlet></router-outlet>
   `,
   styleUrls: ['./app.component.css']

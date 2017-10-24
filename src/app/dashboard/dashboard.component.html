@@ -1,32 +1,38 @@
 <h3>Blog list about the programing adventures</h3>
 <div *ngIf="listView">
-  <div class="row">
-    <div class="col-1"></div>
-    <div class="col-2" (click)="sortByItem('resource_type')"> Resource Type </div>
-    <div class="col-2" (click)="sortByItem('display_title')"> Display Title </div>
-    <div class="col-2" (click)="sortByItem('media_type')"> Media Type </div>
-    <div class="col-2" (click)="sortByItem('language')"> Language </div>
-  </div>
-  <div class="row" *ngFor="let result of orderedList | slice:fromNbr:toNbr">
-    <div class="col-1">
-      <button
-        *ngIf="result.content.resource.viewable === 'true'"
-        class="btn btn-info"
-        (click)="showDetails(result.content.resource.id)">Details
-      </button>
-    </div>
-    <div class="col-2"> {{result.content.resource.resource_type}} </div>
-    <div class="col-2"> {{result.content.resource.display_title}} </div>
-    <div class="col-2"> {{result.content.resource.media_type}} </div>
-    <div class="col-2"> {{result.content.resource.language}} </div>
-  </div>
-  <ngb-pagination [collectionSize]="collectionSize" (pageChange)="switchPageTo($event)" [pageSize]="pageSize" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+  <table class="table table-responsive table-striped">
+    <thead class="grey-header">
+      <tr>
+        <th></th>
+        <th (click)="sortByItem('resource_type')"> Resource Type </th>
+        <th (click)="sortByItem('display_title')"> Display Title </th>
+        <th (click)="sortByItem('media_type')"> Media Type </th>
+        <th (click)="sortByItem('language')"> Language </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let result of orderedList | slice:fromNbr:toNbr">
+        <td>
+          <button
+            *ngIf="result.content.resource.viewable === 'true'"
+            class="btn btn-info"
+            (click)="showDetails(result.content.resource.id)">Details
+          </button>
+        </td>
+        <td> {{result.content.resource.resource_type}} </td>
+        <td> {{result.content.resource.display_title}} </td>
+        <td> {{result.content.resource.media_type}} </td>
+        <td> {{result.content.resource.language}} </td>
+      </tr>
+    </tbody>
+  </table>
+  <ngb-pagination class="center" [collectionSize]="collectionSize" (pageChange)="switchPageTo($event)" [pageSize]="pageSize" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
   Current page: {{page}} with a total of {{collectionSize}} items.
 </div>
 <div *ngIf="!listView">
   <!-- // Again this should be in a different Controller/page in my opinion, but SPA was requested -->
   <div class="row">
-    <div class="col-2"> Categorization </div>
+    <div class="col-2"> Categorization: </div>
     <div class="col-10"> {{ detailView.content.resource.categorization }} </div>
   </div>
   <div class="row">
@@ -34,7 +40,7 @@
     <div class="col-10">{{ detailView.content.resource.meaningful_description }} </div>
   </div>
   <div class="row">
-    <div class="col-2"> Additional Text </div>
+    <div class="col-2"> Additional Text: </div>
     <div class="col-10"> {{ detailView.content.resource.additional_text }} </div>
   </div>
   <div *ngIf="detailView.content.resource.standards && detailView.content.resource.standards.standard">
