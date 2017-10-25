@@ -28,7 +28,7 @@
     </tbody>
   </table>
   <ngb-pagination class="center" [collectionSize]="collectionSize" (pageChange)="switchPageTo($event)" [pageSize]="pageSize" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
-  Current page: {{page}} with a total of {{collectionSize}} items.
+  Items from {{fromNbr + 1}} to {{toNbr}} of {{collectionSize}}.
 </div>
 <div *ngIf="!listView">
   <!-- // Again this should be in a different Controller/page in my opinion, but SPA was requested -->
