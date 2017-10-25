@@ -52,12 +52,10 @@ export class InMemoryDataService {
                       "categorization": "Core Components",
                       "GUID": "NP_G05U02L10D4S21_2189",
                       "standards": {
-                          "standard": [
-                            {
+                          "standard": {
                               "id": "LACC.5.RL.4.10",
                               "description": "By the end of the year, read and comprehend JavaScript, including closures, delegates, and jQuery widgets."
-                            }
-                          ]
+                          }
                       },
                       "resource_type_id": "1",
                       "media_type_id": "1"
@@ -79,10 +77,10 @@ export class InMemoryDataService {
                       "categorization": "UI Development",
                       "GUID": "NP_G04U04L17D5S59_1284",
                       "standards": {
-                          "standard": [{
+                          "standard": {
                               "id": "LACC.4.L.1.2.d",
                               "description": "Make use of the canvas view and rounded corners."
-                          }]
+                          }
                       },
                       "resource_type_id": "1",
                       "media_type_id": "1"
@@ -262,10 +260,10 @@ export class InMemoryDataService {
                       "categorization": "UI Development",
                       "GUID": "NP_G03U01L03D1S51_2187",
                       "standards": {
-                          "standard": [{
+                          "standard": {
                               "id": "LACC.3.L.3.5.b",
                               "description": "Show use of bootstrap on mobile devices."
-                          }]
+                          }
                       },
                       "resource_type_id": "1",
                       "media_type_id": "1"
