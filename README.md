@@ -1,9 +1,10 @@
 ## What is what
 Front-end UI to do a work demo.
+
 Backend: No backend, only faked data fetched via http mocked flow.
 
 ### Flow
-- Get a list from the Backend
+- Get a list from the "Backend"
 - Display that list
 - Ability to display extra details of one element of that list
 - Routing to handle back actions
@@ -15,7 +16,8 @@ $ npm install
 Run `ng serve --open` Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ### Build
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+$ ng build  -> to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+$ node serveStatic   -> Will run a flat version of the app (For AWS setup use forever).
 
 ### Testing
 I am starting to understand how angular2 work, so Test will be next step.
