@@ -5,10 +5,10 @@
     <thead class="grey-header">
       <tr>
         <th></th>
-        <th class="sortorder" [ngClass]="{reverse: reverse}" (click)="sortByItem('resource_type')"> Resource Type </th>
-        <th class="sortorder" [ngClass]="{reverse: reverse}" (click)="sortByItem('display_title')"> Display Title </th>
-        <th class="sortorder" [ngClass]="{reverse: reverse}" (click)="sortByItem('media_type')"> Media Type </th>
-        <th class="sortorder" [ngClass]="{reverse: reverse}" (click)="sortByItem('language')"> Language </th>
+        <th (click)="sortByItem('resource_type')"> Resource Type <span class="sortorder" *ngIf="activeFilter === 'resource_type'" [ngClass]="{reverse: reverse}"></span> </th>
+        <th (click)="sortByItem('display_title')"> Display Title <span class="sortorder" *ngIf="activeFilter === 'display_title'" [ngClass]="{reverse: reverse}"></span> </th>
+        <th (click)="sortByItem('media_type')"> Media Type <span class="sortorder" *ngIf="activeFilter === 'media_type'" [ngClass]="{reverse: reverse}"></span> </th>
+        <th (click)="sortByItem('language')"> Language <span class="sortorder" *ngIf="activeFilter === 'language'" [ngClass]="{reverse: reverse}"></span> </th>
       </tr>
     </thead>
     <tbody>
