@@ -60,18 +60,14 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  sortByItem(name:string):void {
+  sortByItem(name: keyof ResultSchema):void {
     if(name === this.activeFilter) {
       this.reverse = !this.reverse;
     }
     this.activeFilter = name;
 
     const tmp = this.resultList.sort(function(prev, curr) {
-      // TODO: How to make Typescript happy with resource.[name] ???
-      if(name === 'resource_type') { return prev.content.resource.resource_type.localeCompare(curr.content.resource.resource_type)}
-      if(name === 'display_title') { return prev.content.resource.display_title.localeCompare(curr.content.resource.display_title)}
-      if(name === 'media_type') { return prev.content.resource.media_type.localeCompare(curr.content.resource.media_type)}
-      if(name === 'language') { return prev.content.resource.language.localeCompare(curr.content.resource.language)}
+      if(name) { return prev.content.resource[name].localeCompare(curr.content.resource[name])}
       return 1;
     });
 
